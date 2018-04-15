@@ -1,0 +1,10 @@
+body{
+    background-color: #777;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.app{
+    border: 1px solid #8a2be2;
+    background-color: gray;
+}
