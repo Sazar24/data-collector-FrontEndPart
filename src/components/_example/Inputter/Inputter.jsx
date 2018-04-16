@@ -1,5 +1,6 @@
 import React from 'react';
-import { changeDisplayedTextAction } from '../../actions/exampleAction';
+import { changeDisplayedTextAction } from '../../../actions/exampleAction';
+
 
 export class Inputter extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ export class Inputter extends React.Component {
             changeDisplayedTextAction(this.state.text);
         }
     }
+
     render() {
         return (
             <div>
