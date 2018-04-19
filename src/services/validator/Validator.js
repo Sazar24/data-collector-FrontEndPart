@@ -20,7 +20,8 @@ class ValidatorClass {
                 return output;
 
             default:
-                return false;
+                throw "no such data type specified";
+                // return false;
         }
     }
 
