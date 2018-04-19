@@ -1,15 +1,13 @@
 import React from 'react';
-// import { changeDisplayedTextAction } from '../../../actions/exampleAction';
 import "./inputForm.css";
 import Validator from '../../services/validator/Validator';
-// import { Validator } from '../../services/validator/Validator';
 
 export class InputForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             text: '',
-            validationMessage: "",
+            validationMessage: '',
         }
     }
 
@@ -20,8 +18,12 @@ export class InputForm extends React.Component {
     }
 
     validateText() {
-        //validate this.state.text
-        validationMessage = Validator.validate(this.state.text, this.props.dataType);
+        const validationStatus = Validator.validate(this.state.text, this.props.dataType);
+        const newValidationMessage = validationStatus ? "" : "incorrect";
+        
+        this.setState({
+            validationMessage: newValidationMessage,
+        })
     }
 
     render() {

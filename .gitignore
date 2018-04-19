@@ -3,3 +3,4 @@
 /dist
 /node_modules
 /src/components/_example/playingWithVim.js
+/src/__tests__/proofs
