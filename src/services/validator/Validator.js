@@ -21,7 +21,6 @@ class ValidatorClass {
 
             default:
                 throw "no such data type specified";
-                // return false;
         }
     }
 
@@ -38,13 +37,11 @@ class ValidatorClass {
         const suitsGeneralPattern = isEmail(text);
         const atLeastOneDot = /.+/.test(text);
         const onlyOneAtMark = /@{1}/.test(text);    // AtMark == @  
-        const forbiddenMarksOccurs = /^[\? \! \# \$ \% \^ \& \* \\ ]()\{ \} \; \: \/<>/.test(text);
+        const forbiddenMarksOccurs = /^[\? \! \# \$ \% \^ \& \* \\ \[] \] \( \) \{ \} \; \: \/ \< \>]/.test(text);
         
         if (!suitsGeneralPattern || !atLeastOneDot || !onlyOneAtMark || forbiddenMarksOccurs) 
         return false;
         else return true;
-
-        i
     }
 }
 
