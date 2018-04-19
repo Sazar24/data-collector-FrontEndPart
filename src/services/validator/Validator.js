@@ -19,6 +19,10 @@ class ValidatorClass {
                 output = this.validateEmail(text);
                 return output;
 
+            case "DATE":
+                output = this.validateDate(text);
+                return output;
+
             default:
                 throw "no such data type specified";
         }
@@ -38,10 +42,22 @@ class ValidatorClass {
         const atLeastOneDot = /.+/.test(text);
         const onlyOneAtMark = /@{1}/.test(text);    // AtMark == @  
         const forbiddenMarksOccurs = /^[\? \! \# \$ \% \^ \& \* \\ \[] \] \( \) \{ \} \; \: \/ \< \>]/.test(text);
-        
-        if (!suitsGeneralPattern || !atLeastOneDot || !onlyOneAtMark || forbiddenMarksOccurs) 
-        return false;
+
+        if (!suitsGeneralPattern || !atLeastOneDot || !onlyOneAtMark || forbiddenMarksOccurs)
+            return false;
         else return true;
+    }
+
+    validateDate(text) {
+        // //TODO
+        // const regexPattern = /^([0-9]{4}).[0-9]{2}.([0-9]{2})$/;
+        // // string.match(regex);
+
+        // const isPaternMatches = text.match(regexPattern);
+        // if (isPaternMatches)
+            return true;
+        // else return false;
+
     }
 }
 

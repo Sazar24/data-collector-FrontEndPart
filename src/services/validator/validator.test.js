@@ -40,13 +40,9 @@ test('validEmail cheacks whether e-mail is valid', () => {
         output = Validator.validateEmail(element);
         expect(output).toBe(true);
     })
-
-
-
 });
 
 test('Validator.validateEmail() - for incorrect expression should return false', () => {
-
     let incorrectEmails = [
         "someone@ff.123",
         "a:)_1z__Stranger_172@bigks.xd",
@@ -60,5 +56,19 @@ test('Validator.validateEmail() - for incorrect expression should return false',
         let output = Validator.validateEmail(element);
         expect(output).toBe(false);
     })
-
 });
+
+// test('.validateDate() - matching the regex pattern test', () => {
+//     let exampleDate = "1922.11.23";
+//     let output = Validator.validateDate(exampleDate);
+    
+//     expect(output).toBe(true);
+    
+//     exampleDate = "1223111-22";
+//     output = Validator.validateDate(exampleDate);
+//     expect(output).toBe(false);
+
+    
+
+// });
+

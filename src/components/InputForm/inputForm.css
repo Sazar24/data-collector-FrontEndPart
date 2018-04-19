@@ -1,6 +1,7 @@
 .inputForm{
     display: flex;
     width: 300px;
+    max-width: 300px;
     border: 1px dashed black;
     margin: 2px;
     padding: 3px;
@@ -8,6 +9,7 @@
 
 .formTitle{
     width: 150px;
+    max-width: 150px;
 }
 
 .validationError{

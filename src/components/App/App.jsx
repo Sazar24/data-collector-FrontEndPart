@@ -4,11 +4,12 @@ import "./app.css"
 import Preview from './../_example/Preview/Preview';
 import { MainForm } from '../MainForm/MainForm';
 
+
 export class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <MainForm />
+                    <MainForm />
             </div>
         )
     }

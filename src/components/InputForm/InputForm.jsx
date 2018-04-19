@@ -33,7 +33,7 @@ export class InputForm extends React.Component {
                     {this.props.title}
                 </div>
 
-                <span>
+                <div>
                     <input
                         type="text"
                         onChange={(e) => this.handleChange(e)}
@@ -43,7 +43,7 @@ export class InputForm extends React.Component {
                     <div className="validationError">
                         {this.state.validationMessage}
                     </div>
-                </span>
+                </div>
             </div>
         )
     }
