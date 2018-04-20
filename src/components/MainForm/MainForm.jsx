@@ -7,12 +7,12 @@ export class MainForm extends React.Component {
     render() {
         return (
             <div className="mainForm">
-                <InputForm dataType="NAME" title="First name: " />
-                <InputForm dataType="SURNAME" title="Surname: " />
-                <InputForm dataType="EMAIL" title="E-mail: " />
-                <InputForm dataType="DATE" title="Date : " />
-                <InputForm dataType="NAME" title="Town : " />
-                <DatePickForm title="Date: "/>
+                <InputForm title="First name: " dataValidationType="NAME" dataType="name" />
+                <InputForm title="Surname: " dataValidationType="SURNAME" dataType="surname" />
+                <InputForm title="E-mail: " dataValidationType="EMAIL" dataType="email" />
+                <InputForm title="Town : " dataValidationType="NAME" dataType="town" />
+
+                <DatePickForm title="Date: " dataType="date" />
             </div>
         )
     }

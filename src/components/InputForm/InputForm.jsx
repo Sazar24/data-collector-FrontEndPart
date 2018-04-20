@@ -1,6 +1,7 @@
 import React from 'react';
 import "./inputForm.css";
 import Validator from '../../services/validator/Validator';
+import { saveDataAction } from '../../actions/saveDataAction';
 
 export class InputForm extends React.Component {
     constructor(props) {
@@ -18,12 +19,14 @@ export class InputForm extends React.Component {
     }
 
     validateText() {
-        const validationStatus = Validator.validate(this.state.text, this.props.dataType);
+        const validationStatus = Validator.validate(this.state.text, this.props.dataValidationType);
         const newValidationMessage = validationStatus ? "" : "incorrect";
-        
+
         this.setState({
             validationMessage: newValidationMessage,
         })
+
+        if (validationStatus) saveDataAction(this.state.text, this.props.dataType)
     }
 
     render() {

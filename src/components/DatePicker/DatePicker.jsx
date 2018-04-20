@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import "../InputForm/inputForm.css";
+import { saveDataAction } from '../../actions/saveDataAction';
 /**
  * `DatePicker` can be implemented as a controlled input,
  * where `value` is handled by state in the parent component.
@@ -30,8 +31,7 @@ export default class DatePickForm extends React.Component {
       + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `
     );
 
-
-    // miejsce na dispatch do reduxa
+    saveDataAction(date, this.props.dataType)
   };
 
   render() {

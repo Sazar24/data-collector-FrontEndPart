@@ -1,12 +1,15 @@
 import {combineReducers, createStore} from 'redux';
-import { exampleReducer } from './exampleReducer';
+import { formDataReducer } from './formDataReducer';
 
 const reducers = combineReducers({
-    exampleReducer,
-    // here you can put more reducers
+    formDataReducer,
 })
 
 export const reduxStore = createStore(
     reducers, 
-    //  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  // kind of debugging tool (ive tested it so far only with chrome)
 )
+
+reduxStore.subscribe(() => {
+    const reduxStorePrintable = JSON.stringify(reduxStore.getState());
+    console.log(reduxStorePrintable);
+  });
