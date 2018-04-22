@@ -31,7 +31,7 @@ export default class DatePickForm extends React.Component {
       + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `
     );
 
-    saveDataAction(date, this.props.dataType)
+    saveDataAction(date, this.props.reducerDataType)
   };
 
   render() {

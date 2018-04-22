@@ -17,4 +17,7 @@ TODO:
 
 - More tests!
 
-#
+
++ ustalić:  
++ + kiedy ma być walidacja (czy w czasie pisania? czy on focus/blur?)  
++ + na ile ma być precyzyjna walidacja?

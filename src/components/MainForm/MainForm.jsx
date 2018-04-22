@@ -1,18 +1,25 @@
 import React from 'react';
 import { InputForm } from '../InputForm/InputForm';
-import DatePickerExampleControlled from '../DatePicker/DatePicker';
 import DatePickForm from '../DatePicker/DatePicker';
+
+const DataValidationType = {
+    Name: Symbol("NAME"),
+    Surname: Symbol("SURNAME"),
+    Email: Symbol("EMAIL"),
+}   // TODO: use symbols  (---> <Component validator={DataValidationType.Email} />  )
+
+
 
 export class MainForm extends React.Component {
     render() {
         return (
             <div className="mainForm">
-                <InputForm title="First name: " dataValidationType="NAME" dataType="name" />
-                <InputForm title="Surname: " dataValidationType="SURNAME" dataType="surname" />
-                <InputForm title="E-mail: " dataValidationType="EMAIL" dataType="email" />
-                <InputForm title="Town : " dataValidationType="NAME" dataType="town" />
+                <InputForm title="First name: " validator="NAME" reducerDataType="name" />
+                <InputForm title="Surname: " validator="SURNAME" reducerDataType="surname" />
+                <InputForm title="E-mail: " validator="EMAIL" reducerDataType="email" />
+                <InputForm title="Town : " validator="NAME" reducerDataType="town" />
 
-                <DatePickForm title="Date: " dataType="date" />
+                <DatePickForm title="Date: " reducerDataType="date" />
             </div>
         )
     }

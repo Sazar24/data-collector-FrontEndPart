@@ -13,20 +13,34 @@ export class InputForm extends React.Component {
     }
 
     handleChange(e) {
-        this.setState({
-            text: e.target.value
-        })
+        this.saveInputValue(e.target.value);
     }
 
-    validateText() {
-        const validationStatus = Validator.validate(this.state.text, this.props.dataValidationType);
-        const newValidationMessage = validationStatus ? "" : "incorrect";
+    saveInputValue(value) {
+        this.setState({
+            text: value
+        });
+    }
 
+    printErrorMessage(msg) {
+        this.setErrorMessage(msg);
+    }
+
+    setErrorMessage(newValidationMessage) {
         this.setState({
             validationMessage: newValidationMessage,
-        })
+        });
+    }
 
-        if (validationStatus) saveDataAction(this.state.text, this.props.dataType)
+    handleBlur() {
+        if (Validator.validate(this.state.text, this.props.validator)) {
+            this.printErrorMessage("");
+            saveDataAction(this.state.text, this.props.reducerDataType);
+        }
+        else {
+            this.printErrorMessage("incorrect");
+        }
+
     }
 
     render() {
@@ -40,7 +54,7 @@ export class InputForm extends React.Component {
                     <input
                         type="text"
                         onChange={(e) => this.handleChange(e)}
-                        onBlur={() => this.validateText()}
+                        onBlur={() => this.handleBlur()}
                     />
 
                     <div className="validationError">
