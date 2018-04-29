@@ -1,3 +1,9 @@
 .mainForm{
-    display: inline-flex;
+    display: block;
+    /* border: 4px solid goldenrod; */
+    min-width: 70%;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
 }

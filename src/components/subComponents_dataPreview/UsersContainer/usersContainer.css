@@ -1,0 +1,10 @@
+.usersContainer{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 200px;
+    min-width: 200px;
+    padding: 3px;
+    border: 1px dashed black;
+    /* background-color: blueviolet; */
+}

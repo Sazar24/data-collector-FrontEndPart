@@ -1,0 +1,11 @@
+.singleUserTile{
+    display: block;
+    border: 1px dotted pink;
+    width: 70%;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+
+.singleUserTile:last-child{
+    margin-bottom: 0px;
+}

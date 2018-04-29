@@ -1,8 +1,11 @@
 import {combineReducers, createStore} from 'redux';
 import { formDataReducer } from './formDataReducer';
+import { ServerDataReducer } from './serverDataReducer';
 
 const reducers = combineReducers({
     formDataReducer,
+    ServerDataReducer
+    
 })
 
 export const reduxStore = createStore(
