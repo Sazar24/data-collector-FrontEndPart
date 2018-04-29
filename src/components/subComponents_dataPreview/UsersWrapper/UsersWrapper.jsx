@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SingleUserTile from '../SingleUser/SingleUserTile';
 const uuidv1 = require('uuid/v1');
+import SingleUserTile from '../SingleUser/SingleUserTile';
+import './usersWrapper.css';
 
 class UsersWrapper extends React.Component {
     render() {
@@ -13,7 +14,7 @@ class UsersWrapper extends React.Component {
             )
         else
             return (
-                <div className="UsersWrapper">
+                <div className="usersWrapper">
                     {this.props.users.map((userData, index) => {
                         return <SingleUserTile
                             data={userData}

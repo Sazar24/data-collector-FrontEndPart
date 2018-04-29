@@ -1,4 +1,4 @@
-.UsersWrapper{
-    display: flex;
-    border: 2px dashed red;
+.usersWrapper{
+    display: block;
+    border: 1px solid red;
 }
