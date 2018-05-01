@@ -10,19 +10,13 @@ export function getUsersData_Mock() {
 }
 
 //async/await nie działa bo babel...
-export function getDataFromServer() {
-    axios.get('localhost:3000/api/users/getall',
-        {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }
-    )
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
+export async function getUserDataFromServer() {
+    const response = await axios.get('http://localhost:3000/api/users/getall');
+    console.log(response);
+    if (response.data !== undefined)
+        reduxStore.dispatch({
+            type: "USERS_DATA_RECEIVED",
+            payload: response.data
         });
 }
 

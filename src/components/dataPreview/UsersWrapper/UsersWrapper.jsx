@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-const uuidv1 = require('uuid/v1');
+import uuidv1 from 'uuid/v1';
 import SingleUserTile from '../SingleUser/SingleUserTile';
 import './usersWrapper.css';
 

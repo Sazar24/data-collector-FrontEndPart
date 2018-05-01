@@ -3,7 +3,7 @@ import { Inputter } from './../_example/Inputter/Inputter';
 import "./app.css"
 import Preview from './../_example/Preview/Preview';
 import { MainForm } from '../MainForm/MainForm';
-import UsersContainer from '../subComponents_dataPreview/UsersContainer/UsersContainer';
+import UsersContainer from '../dataPreview/UsersContainer/UsersContainer';
 
 
 export class App extends React.Component {

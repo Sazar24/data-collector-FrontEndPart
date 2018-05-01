@@ -1,12 +1,12 @@
 import React from 'react';
 import "./apiButtons.css";
-import { getUsersData_Mock } from '../../actions/getDataFromServer';
+import { getUsersData_Mock, getUserDataFromServer } from '../../actions/getDataFromServer';
 
 class ApiButtonGetData extends React.Component {
     handleClick() {
         console.log("kliknąłeś button GetData.");
-        //tu miejsce na jakiegoś dispatcha i service, żeby wołać axiosem do servera
-        getUsersData_Mock();
+        // getUsersData_Mock();
+        getUserDataFromServer();
     }
 
     render() {
