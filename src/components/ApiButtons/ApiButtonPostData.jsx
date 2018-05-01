@@ -1,13 +1,12 @@
 import React from 'react';
 import "./apiButtons.css";
-import { postUserDataToServer } from '../../actions/postDataToServer';
-import { postUserDataToServerMock } from '../../actions/postDataToServer';
+import ServersApiCaller from '../../actions/ServersApiCaller';
+
 
 class ApiButtonPostData extends React.Component {
     handleClick() {
         console.log("kliknąłeś button submit.");
-        //tu miejsce na jakiegoś dispatcha i service, żeby wołać axiosem do servera
-        postUserDataToServerMock();
+        ServersApiCaller.postUserData();
     }
  
     render() {

@@ -1,7 +1,8 @@
 import React from 'react';
 import "./inputForm.css";
-import Validator from '../../services/validator/Validator';
-import { saveDataAction } from '../../actions/saveDataAction';
+import Validator from '../../../services/validator/Validator';
+import ReduxControl from '../../../actions/reduxControl';
+
 
 export class InputForm extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ export class InputForm extends React.Component {
     handleBlur() {
         if (Validator.validate(this.state.text, this.props.validator)) {
             this.printErrorMessage("");
-            saveDataAction(this.state.text, this.props.reducerDataType);
+            ReduxControl.saveData(this.state.text, this.props.reducerDataType);
         }
         else {
             this.printErrorMessage("incorrect");

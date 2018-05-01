@@ -1,12 +1,11 @@
 import React from 'react';
 import "./apiButtons.css";
-import { getUsersData_Mock, getUserDataFromServer } from '../../actions/getDataFromServer';
+import ServersApiCaller from '../../actions/ServersApiCaller';
 
 class ApiButtonGetData extends React.Component {
     handleClick() {
         console.log("kliknąłeś button GetData.");
-        // getUsersData_Mock();
-        getUserDataFromServer();
+        ServersApiCaller.getUsers();
     }
 
     render() {

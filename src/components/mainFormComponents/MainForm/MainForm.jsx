@@ -1,8 +1,9 @@
 import React from 'react';
 import { InputForm } from '../InputForm/InputForm';
 import DatePickForm from '../DatePicker/DatePicker';
-import ApiButtonPostData from '../ApiButtons/ApiButtonPostData';
 import "./mainForm.css";
+import ApiButtonPostData from '../../ApiButtons/ApiButtonPostData';
+
 
 const DataValidationType = {
     Name: Symbol("NAME"),
@@ -10,7 +11,7 @@ const DataValidationType = {
     Email: Symbol("EMAIL"),
 }   // TODO: use symbols  (---> <Component validator={DataValidationType.Email} />  )
 
-export class MainForm extends React.Component {
+export class MainFormContainer extends React.Component {
     render() {
         return (
             <div className="mainForm">

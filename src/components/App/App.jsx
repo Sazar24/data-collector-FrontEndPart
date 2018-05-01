@@ -1,16 +1,15 @@
 import React from 'react';
-import { Inputter } from './../_example/Inputter/Inputter';
+import { MainFormContainer } from '../mainFormComponents/MainForm/MainForm';
+import UsersContainer from '../dataPreviewComponents/UsersContainer/UsersContainer';
 import "./app.css"
-import Preview from './../_example/Preview/Preview';
-import { MainForm } from '../MainForm/MainForm';
-import UsersContainer from '../dataPreview/UsersContainer/UsersContainer';
+
 
 
 export class App extends React.Component {
     render() {
         return (
             <div className="app">
-                    <MainForm />
+                    <MainFormContainer />
                     <UsersContainer />
             </div>
         )
