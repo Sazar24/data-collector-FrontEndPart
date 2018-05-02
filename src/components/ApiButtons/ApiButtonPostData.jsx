@@ -2,7 +2,6 @@ import React from 'react';
 import "./apiButtons.css";
 import ServersApiCaller from '../../actions/ServersApiCaller';
 
-
 class ApiButtonPostData extends React.Component {
     handleClick() {
         console.log("kliknąłeś button submit.");

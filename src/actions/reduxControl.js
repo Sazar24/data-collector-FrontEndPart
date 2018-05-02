@@ -8,6 +8,7 @@ class ReduxControlClass {
             dataType: dataType
         })
     }
+
 }
 
 const ReduxControl = new ReduxControlClass();

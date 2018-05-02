@@ -3,7 +3,6 @@ import "./inputForm.css";
 import Validator from '../../../services/validator/Validator';
 import ReduxControl from '../../../actions/reduxControl';
 
-
 export class InputForm extends React.Component {
     constructor(props) {
         super(props);

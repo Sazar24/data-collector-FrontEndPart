@@ -21,17 +21,16 @@ export default class DatePickForm extends React.Component {
       controlledDate: date,
     });
     
-    console.log(`You have picked : `
-      + `${date.getFullYear()} `
-      + `/ ${(date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : date.getMonth()+1} `
-      + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `
-    );
+    // console.log(`You have picked : `
+    //   + `${date.getFullYear()} `
+    //   + `/ ${(date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : date.getMonth()+1} `
+    //   + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `
+    // );
 
     ReduxControl.saveData(date, this.props.reducerDataType);
   };
 
   render() {
-
     return (
       <div className="inputForm">
         <div className="formTitle">
