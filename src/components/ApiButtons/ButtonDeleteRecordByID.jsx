@@ -9,11 +9,6 @@ class ButtonDeleteRecordByID extends React.Component {
     }
 
     handleClick() {
-        // reload tablicy/reduxa po usunięciu pojedynczego
-        // const deleteSuccess = ServersApiCaller.deleteRecord(this.props.id);
-        // if (deleteSuccess) 
-        // ServersApiCaller.getUsers;
-
         ServersApiCaller.deleteRecord(this.props.id);
     }
 
@@ -27,10 +22,6 @@ class ButtonDeleteRecordByID extends React.Component {
                         onClick={() => this.handleClick()}
                     />
                 </div>
-
-                {/* <div className="wholeFormValidationStatus"> 
-                    tu miejsce na komunikaty o walidacji - np "wypełnij wszystkie pola"/"wypełnij poprawnie cały formularz"
-                </div> */}
             </div>
         )
     }

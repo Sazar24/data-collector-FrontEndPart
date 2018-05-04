@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import "../InputForm/inputForm.css";
-import ReduxControl from '../../../actions/reduxControl';
+import ReduxActions from '../../../actions/reduxActions';
 
 export default class DatePickForm extends React.Component {
 
@@ -26,8 +26,12 @@ export default class DatePickForm extends React.Component {
     //   + `/ ${(date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : date.getMonth()+1} `
     //   + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `
     // );
+    
+    const dateAsString = `${date.getFullYear()} `
+      + `/ ${(date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1} `
+      + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `;
 
-    ReduxControl.saveData(date, this.props.reducerDataType);
+    ReduxActions.saveData(dateAsString, this.props.reducerDataType);
   };
 
   render() {

@@ -1,4 +1,4 @@
-input[type=submit]{
+input[type=submit], button{
     background-color: rgb(88, 84, 84);
     outline-color: none;
     border: none;
@@ -9,7 +9,7 @@ input[type=submit]{
     cursor: pointer;    
 }
 
-input[type=submit]:focus{
+input[type=submit]:focus, button:focus{
     outline: none;
     background-color: rgb(129, 206, 206);
     color: black;
@@ -28,7 +28,7 @@ input[type=submit]:focus{
 
 .wholeFormValidationStatus{
     display: inherit;
-    min-width: 60%;
+    min-width: 50%;
     color: whitesmoke;
     font-size: 150%;
     text-align: center;

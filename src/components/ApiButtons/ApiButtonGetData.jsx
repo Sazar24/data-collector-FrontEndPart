@@ -4,7 +4,6 @@ import ServersApiCaller from '../../actions/ServersApiCaller';
 
 class ApiButtonGetData extends React.Component {
     handleClick() {
-        console.log("kliknąłeś button GetData.");
         ServersApiCaller.getUsers();
     }
 
@@ -12,11 +11,9 @@ class ApiButtonGetData extends React.Component {
         return (
             <div className="buttonSpace" >
                 <div className="singlenButton">
-                    <input
-                        type="submit"
-                        value="get user-data"
-                        onClick={() => this.handleClick()}
-                    />
+                    <button onClick={() => this.handleClick()}>
+                        get user-data
+                    </button>
                 </div>
             </div>
         )

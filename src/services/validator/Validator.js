@@ -31,7 +31,7 @@ class ValidatorClass {
 
     validateProperName(text) {  // <ang. "nazwa własna">
         const atLeastOneVowel = /[aeiouyąę]+/i.test(text);
-        const noSpecialMarkIncluded = /[^a-z-ęóąłżźćń]/i.test(text);
+        const noSpecialMarkIncluded = /[^a-z-ęóąłżźćńś]/i.test(text);
 
         if (noSpecialMarkIncluded || !atLeastOneVowel) return false;
         else return true;
@@ -42,13 +42,14 @@ class ValidatorClass {
         const atLeastOneDot = /.+/.test(text);
         const onlyOneAtMark = /@{1}/.test(text);    // AtMark == @  
         const forbiddenMarksOccurs = /^[\? \! \# \$ \% \^ \& \* \\ \[] \] \( \) \{ \} \; \: \/ \< \>]/.test(text);
+        //TODO: forbiddenMarksOccurs stopped working. Find out why o.O
 
         if (!suitsGeneralPattern || !atLeastOneDot || !onlyOneAtMark || forbiddenMarksOccurs)
             return false;
         else return true;
     }
 
-    validateDate(text) {
+    validateDate(text) { // TODO: remove
         // //TODO
         // const regexPattern = /^([0-9]{4}).[0-9]{2}.([0-9]{2})$/;
         // // string.match(regex);
