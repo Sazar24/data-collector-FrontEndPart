@@ -16,7 +16,6 @@ class UsersWrapper extends React.Component {
             return (
                 <div className="usersWrapper">
                     {this.props.users.map((userData, index) => {
-                        console.log("userData: ", userData);
                         return <SingleUserTile
                             data={userData}
                             key={uuidv1()}

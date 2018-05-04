@@ -1,3 +1,5 @@
+import { indexOfItemWithMongoID } from "../services/utilityFunctions/findIndexByID";
+
 export const ServerDataReducer = (state = {}, action) => {
     let newUsersData = [];
 
@@ -12,18 +14,14 @@ export const ServerDataReducer = (state = {}, action) => {
 
         case "DELETE_FROM_USERLIST":
             newUsersData = state.users.slice();
-            const indexToRemove = indexOfItemWithMongoID(action.payload, newUsersData);
-            newUsersData.splice(indexToRemove, 1);
+
+            let indexToBeRemoved;
+
+            indexToBeRemoved = indexOfItemWithMongoID(action.payload, newUsersData)
+            newUsersData.splice(indexToBeRemoved, 1);
             return { ...state, users: newUsersData.slice() };
 
         default:
             return { ...state };
     }
-}
-
-function indexOfItemWithMongoID(_id, _array) {
-    _array.forEach((element, index) => {
-        if (element._id === _id)
-            return index;
-    });
 }
