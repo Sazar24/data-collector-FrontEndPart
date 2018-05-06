@@ -1,9 +1,10 @@
 import { reduxStore } from "../reducers/index";
+import * as actionTypes from "./actionTypes/actionTypes";
 
 class ReduxActionsClass {
     saveData(text, dataType) {
         reduxStore.dispatch({
-            type: "PERSONAL_DATA_CHANGE",
+            type: actionTypes.PERSONAL_DATA_CHANGE,
             payload: text,
             dataType: dataType
         })
@@ -11,27 +12,27 @@ class ReduxActionsClass {
 
     clearMainForm() {
         reduxStore.dispatch({
-            type: "CLEAR_MAIN_FORM"
+            type: actionTypes.CLEAR_MAIN_FORM
         })
     }
 
     addToUsersList(user) {
         reduxStore.dispatch({
-            type: "ADD_NEW_USERDATA",
+            type: actionTypes.ADD_NEW_USERDATA,
             payload: user
         });
     }
 
     usersDataDownloaded(usersData) {
         reduxStore.dispatch({
-            type: "USERS_DATA_RECEIVED",
+            type: actionTypes.USERS_DATA_RECEIVED,
             payload: usersData
         });
     }
 
     deleteFromUsersListByID(id){
         reduxStore.dispatch({
-            type: "DELETE_FROM_USERLIST",
+            type: actionTypes.DELETE_FROM_USERLIST,
             payload: id
         })
     }
