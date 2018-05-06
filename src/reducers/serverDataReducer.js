@@ -1,4 +1,4 @@
-import { indexOfItemWithMongoID } from "../services/utilityFunctions/findIndexByID";
+import { findIndexOfItemByID } from "../services/utilityFunctions/findIndexByID";
 
 export const ServerDataReducer = (state = {}, action) => {
     let newUsersData = [];
@@ -17,7 +17,7 @@ export const ServerDataReducer = (state = {}, action) => {
 
             let indexToBeRemoved;
 
-            indexToBeRemoved = indexOfItemWithMongoID(action.payload, newUsersData)
+            indexToBeRemoved = findIndexOfItemByID(action.payload, newUsersData)
             newUsersData.splice(indexToBeRemoved, 1);
             return { ...state, users: newUsersData.slice() };
 

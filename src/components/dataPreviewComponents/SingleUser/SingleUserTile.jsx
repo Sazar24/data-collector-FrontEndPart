@@ -7,7 +7,7 @@ export default class SingleUserTile extends React.Component {
         return (
             <div className="singleUserTile">
                 <div style={{ "color": "darkblue" }}>
-                    id: {this.props.data._id}
+                    id: {this.props.data.id}
                 </div>
 
                 name: {this.props.data.name} <br />
@@ -16,7 +16,7 @@ export default class SingleUserTile extends React.Component {
                 email: {this.props.data.email} <br />
                 date: {this.props.data.date}
 
-                <ButtonDeleteRecordByID id={this.props.data._id} />
+                <ButtonDeleteRecordByID id={this.props.data.id} />
 
             </div>
         )

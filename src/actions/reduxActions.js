@@ -35,7 +35,6 @@ class ReduxActionsClass {
             payload: id
         })
     }
-
 }
 
 const ReduxActions = new ReduxActionsClass();
