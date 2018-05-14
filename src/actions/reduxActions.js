@@ -4,7 +4,7 @@ import * as actionTypes from "./actionTypes/actionTypes";
 class ReduxActionsClass {
     saveData(text, dataType) {
         reduxStore.dispatch({
-            type: actionTypes.PERSONAL_DATA_CHANGE,
+            type: actionTypes.MAINFORM_DATA_CHANGE,
             payload: text,
             dataType: dataType
         })

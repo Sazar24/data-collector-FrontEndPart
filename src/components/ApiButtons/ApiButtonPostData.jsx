@@ -1,12 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import "./apiButtons.css";
 import ServersApiCaller from '../../actions/ServersApiCaller';
 import ReduxActions from '../../actions/reduxActions';
+import { clearMainForm } from '../../actions/actions';
 
 class ApiButtonPostData extends React.Component {
     handleClick() {
-        ServersApiCaller.postUserData(); // TODO: rename to UsersService.Add
-        ReduxActions.clearMainForm();
+        // ServersApiCaller.postUserData(); // TODO: rename to UsersService.Add
+        console.log("guzik chwilowo wyłączony - na czas developmentu ");
+        // ReduxActions.clearMainForm();
+        this.props.dispatch(clearMainForm());
     }
     // TODO: input --> button
     render() {
@@ -17,14 +21,14 @@ class ApiButtonPostData extends React.Component {
                         post-user-data
                     </button>
                 </div>
-                
 
-                 <div className="wholeFormValidationStatus">
-                {/* //     tu miejsce na komunikaty o walidacji - np "wypełnij wszystkie pola"/"wypełnij poprawnie cały formularz" */}
-                 </div>
+
+                <div className="wholeFormValidationStatus">
+                    {/* //     tu miejsce na komunikaty o walidacji - np "wypełnij wszystkie pola"/"wypełnij poprawnie cały formularz" */}
+                </div>
             </div>
         )
     }
 };
 
-export default ApiButtonPostData;
+export default connect()(ApiButtonPostData);

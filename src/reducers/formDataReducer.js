@@ -1,15 +1,21 @@
-import { PERSONAL_DATA_CHANGE, CLEAR_MAIN_FORM } from "../actions/actionTypes/actionTypes";
+import { MAINFORM_DATA_CHANGE, CLEAR_MAIN_FORM } from "../actions/actionTypes/actionTypes";
 
-export const formDataReducer = (state = {}, action) => {
+const defaultState = {
+    name: '', 
+    surname: '',
+    town: ''
+}
+
+export const formDataReducer = (state = {...defaultState}, action) => {
     switch (action.type) {
-        case PERSONAL_DATA_CHANGE:
-            let stateNewValue = {}; 
-            stateNewValue[action.dataType] = action.payload; 
-            return { ...state, ...stateNewValue }
+        case MAINFORM_DATA_CHANGE:
+            // let stateNewValue = {}; 
+            // stateNewValue[action.dataType] = action.payload; 
+            return { ...state, [action.dataType]: action.payload }
 
         case CLEAR_MAIN_FORM:
-            const empytState = {};
-            return { ...empytState };
+            // return null;
+            return defaultState;
 
         default:
             return state;

@@ -19,21 +19,21 @@ class ValidatorClass {
                 output = this.validateEmail(text);
                 return output;
 
-            case "DATE":
-                output = this.validateDate(text);
-                return output;
-
             default:
-                throw "no such data type specified";
+                return true;
         }
     }
 
 
     validateProperName(text) {  // <ang. "nazwa własna">
-        const atLeastOneVowel = /[aeiouyąę]+/i.test(text);
-        const noSpecialMarkIncluded = /[^a-z-ęóąłżźćńś]/i.test(text);
 
-        if (noSpecialMarkIncluded || !atLeastOneVowel) return false;
+        const atLeastOneVowel = /[aeiouyąę]+/i.test(text);
+        const hasSpecialMark = /[^a-z-ęóąłżźćńś]/i.test(text);
+        const hasProperLengthRange = /^[a-z-ęóąłżźćńś]{2,20}$/i.test(text);
+
+        // console.log(`1:${atLeastOneVowel} 2:${hasSpecialMark} 3:${hasProperLengthRange} <-- ${text}`);
+        
+        if (!atLeastOneVowel || hasSpecialMark || !hasProperLengthRange) return false;
         else return true;
     }
 
@@ -47,18 +47,6 @@ class ValidatorClass {
         if (!suitsGeneralPattern || !atLeastOneDot || !onlyOneAtMark || forbiddenMarksOccurs)
             return false;
         else return true;
-    }
-
-    validateDate(text) { // TODO: remove
-        // //TODO
-        // const regexPattern = /^([0-9]{4}).[0-9]{2}.([0-9]{2})$/;
-        // // string.match(regex);
-
-        // const isPaternMatches = text.match(regexPattern);
-        // if (isPaternMatches)
-            return true;
-        // else return false;
-
     }
 }
 
