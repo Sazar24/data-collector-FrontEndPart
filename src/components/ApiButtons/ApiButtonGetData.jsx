@@ -1,10 +1,10 @@
 import React from 'react';
 import "./apiButtons.css";
-import ServersApiCaller from '../../actions/ServersApiCaller';
+import UsersService from '../../services/Users/UsersService';
 
 class ApiButtonGetData extends React.Component {
     handleClick() {
-        ServersApiCaller.getUsers();
+        UsersService.getUsers();
     }
 
     render() {

@@ -1,9 +1,12 @@
-import { reduxStore } from "../reducers";
+
 import axios from 'axios';
-import ReduxActions from "./reduxActions";
+// import dispatch from 'react-redux';
+// import { addToUsersList, usersDataDownloaded } from "./actions";
+import ReduxActions from "../../actions/reduxActions";
+import { reduxStore } from '../../reducers';
 
 
-class ServersApiCallerClass {
+class UsersServiceClass {
     async postUserData() {
         const mainFormData = reduxStore.getState().formDataReducer;
         try {
@@ -42,5 +45,5 @@ class ServersApiCallerClass {
     }
 }
 
-const ServersApiCaller = new ServersApiCallerClass();
-export default ServersApiCaller;
+const UsersService = new UsersServiceClass();
+export default UsersService;

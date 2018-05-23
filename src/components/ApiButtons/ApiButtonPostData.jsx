@@ -1,18 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import "./apiButtons.css";
-import ServersApiCaller from '../../actions/ServersApiCaller';
 import ReduxActions from '../../actions/reduxActions';
 import { clearMainForm } from '../../actions/actions';
+import Validator from '../../services/validator/Validator';
+import UsersService from '../../services/Users/UsersService';
 
 class ApiButtonPostData extends React.Component {
-    handleClick() {
-        // ServersApiCaller.postUserData(); // TODO: rename to UsersService.Add
-        console.log("guzik chwilowo wyłączony - na czas developmentu ");
-        // ReduxActions.clearMainForm();
-        this.props.dispatch(clearMainForm());
+    constructor(props) {
+        super(props)
+        this.state = {
+            validationMsg: ''
+        }
+
     }
-    // TODO: input --> button
+    handleClick() {
+        const { formValues, dispatch } = this.props;
+
+        if (Validator.isFormComplete(formValues)) {
+            this.setState({ validationMsg: '' });
+            UsersService.postUserData(); // TODO: rename to UsersService.Add
+            dispatch(clearMainForm());
+            console.log("wysłano dane formularza. Jest ok");
+        }
+        else {
+            this.setState({ validationMsg: 'form is not filled completly or properly' });
+        }
+    }
     render() {
         return (
             <div className="buttonSpace" >
@@ -24,11 +38,13 @@ class ApiButtonPostData extends React.Component {
 
 
                 <div className="wholeFormValidationStatus">
-                    {/* //     tu miejsce na komunikaty o walidacji - np "wypełnij wszystkie pola"/"wypełnij poprawnie cały formularz" */}
+                    {this.state.validationMsg}
                 </div>
             </div>
         )
     }
 };
-
-export default connect()(ApiButtonPostData);
+const mapStateToProps = store => ({
+    formValues: store.formDataReducer,
+})
+export default connect(mapStateToProps)(ApiButtonPostData);

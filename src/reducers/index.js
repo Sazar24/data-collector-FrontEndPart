@@ -13,5 +13,5 @@ export const reduxStore = createStore(
 
 reduxStore.subscribe(() => {
     const reduxStorePrintable = JSON.stringify(reduxStore.getState());
-    console.log("reduxStore-content has changed: ", reduxStore.getState());
+    // console.log("reduxStore-content has changed: ", reduxStore.getState());
   });

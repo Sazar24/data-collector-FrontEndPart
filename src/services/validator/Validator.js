@@ -32,7 +32,7 @@ class ValidatorClass {
         const hasProperLengthRange = /^[a-z-ęóąłżźćńś]{2,20}$/i.test(text);
 
         // console.log(`1:${atLeastOneVowel} 2:${hasSpecialMark} 3:${hasProperLengthRange} <-- ${text}`);
-        
+
         if (!atLeastOneVowel || hasSpecialMark || !hasProperLengthRange) return false;
         else return true;
     }
@@ -48,7 +48,15 @@ class ValidatorClass {
             return false;
         else return true;
     }
-}
 
+    isFormComplete(formData) {
+
+        for (let property in formData) {
+            if (formData[property] === null || formData[property] === false || formData[property] === undefined || formData[property] === '')
+                return false;
+        }
+        return true;
+    }
+}
 const Validator = new ValidatorClass();
 export default Validator;

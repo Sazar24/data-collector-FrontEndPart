@@ -1,14 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import DatePicker from 'material-ui/DatePicker';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
 import "../InputForm/inputForm.css";
-import ReduxActions from '../../../actions/reduxActions';
+import { saveFormDataByType } from '../../../actions/actions';
 
-export default class DatePickForm extends React.Component {
 
+class DatePickForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,18 +20,16 @@ export default class DatePickForm extends React.Component {
     this.setState({
       controlledDate: date,
     });
-    
-    // console.log(`You have picked : `
-    //   + `${date.getFullYear()} `
-    //   + `/ ${(date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : date.getMonth()+1} `
-    //   + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `
-    // );
-    
+
     const dateAsString = `${date.getFullYear()} `
       + `/ ${(date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1} `
       + `/ ${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()} `;
 
-    ReduxActions.saveData(dateAsString, this.props.reducerDataType);
+    // this.props.dispatch({
+    //   text: dateAsString,
+    //   type: this.props.reducerDataType
+    // });
+    this.props.dispatch(saveFormDataByType(dateAsString, this.props.reducerDataType));
   };
 
   render() {
@@ -55,3 +53,4 @@ export default class DatePickForm extends React.Component {
     )
   }
 }
+export default connect()(DatePickForm);

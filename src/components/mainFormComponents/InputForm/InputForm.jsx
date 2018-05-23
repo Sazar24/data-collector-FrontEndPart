@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import "./inputForm.css";
 import Validator from '../../../services/validator/Validator';
 import ReduxActions from '../../../actions/reduxActions';
-import { saveFormDataByType } from '../../../actions/actions';
+import { saveFormDataByType, saveValidationResult } from '../../../actions/actions';
+import { validatorMark } from '../../../services/validator/validatorMark';
 
 class InputForm extends React.Component {
 
@@ -21,33 +22,13 @@ class InputForm extends React.Component {
     }
 
     validateInputValue() {
-        const validationPassed = Validator.validate(this.props.thisFormValue, this.props.validator);
-        if (validationPassed)
-            this.props.dispatch(saveFormDataByType(validationPassed, this.props.reducerDataType + "_isValid"));
-        else this.props.dispatch(saveFormDataByType(validationPassed, this.props.reducerDataType + "_isValid"));
-        // if (Validator.validate(this.state.text, this.props.validator)) {
-        //     this.printErrorMessage("");
-        //     ReduxActions.saveDakta(this.state.text, this.props.reducerDataType);
-        // }
-        // else {
-        //     this.printErrorMessage("incorrect");
-        // }
-
+        const validationPassed = Validator.validate(this.props.value, this.props.validator);
+        this.props.dispatch(saveValidationResult(validationPassed, this.props.reducerDataType));
     }
-    // printErrorMessage(msg) {
-    //     this.setErrorMessage(msg);
-    // }
-
-    // setErrorMessage(newValidationMessage) {
-    //     this.setState({
-    //         ...this.state, validationMessage: newValidationMessage,
-    //     });
-    // }
 
     handleBlur() {
-        this.props.dispatch(saveFormDataByType(this.props.thisFormValue, this.props.reducerDataType));
-
         this.validateInputValue();
+        this.props.dispatch(saveFormDataByType(this.props.value, this.props.reducerDataType));
     }
 
     render() {
@@ -60,17 +41,14 @@ class InputForm extends React.Component {
                 <div>
                     <input
                         type="text"
-                        value={this.props.thisFormValue}
+                        value={this.props.value}
                         onChange={(e) => this.handleChange(e)}
                         onBlur={() => this.handleBlur()}
                         onKeyDown={(e) => this.handleSubmit(e)}
                     />
 
                     <div className="validationError">
-                        {/* {this.state.validationMessage} */}
-                        {/* {(this.props.thisFormValidationStatus !== undefined || this.props.thisFormValidationStatus === false) ? */}
-                        {(this.props.thisFormValidationStatus === false) ?
-                            "incorrect" : ""}
+                        {(this.props.validationStatus === false) ? "incorrect" : ""}
                     </div>
                 </div>
             </div>
@@ -80,8 +58,8 @@ class InputForm extends React.Component {
 
 
 const mapStateToProps = (store, props) => ({
-    thisFormValue: store.formDataReducer[props.reducerDataType],
-    thisFormValidationStatus: store.formDataReducer[props.reducerDataType + "_isValid"], // brzydka sztuczka, ale jest 2.00 w nocy... // TODO
+    value: store.formDataReducer[props.reducerDataType],
+    validationStatus: store.formDataReducer[props.reducerDataType + validatorMark],
 });
 
 
