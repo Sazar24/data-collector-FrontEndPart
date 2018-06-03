@@ -14,7 +14,6 @@ export default
             <div className="mainForm">
                 <InputForm title="First name:" validator="NAME" reducerDataType="name" />
                 <InputForm title="Surname:" validator="SURNAME" reducerDataType="surname" />
-                <InputForm title="Surname:" validator="SURNAME" reducerDataType="surname" />
                 <InputForm title="E-mail:" validator="EMAIL" reducerDataType="email" />
                 <InputForm title="Town:" validator="NAME" reducerDataType="town" />
                 <DatePicker title="Date:" reducerDataType="date" /> 

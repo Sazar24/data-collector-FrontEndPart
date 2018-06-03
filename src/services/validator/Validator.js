@@ -28,12 +28,12 @@ class ValidatorClass {
     validateProperName(text) {  // <ang. "nazwa własna">
 
         const atLeastOneVowel = /[aeiouyąę]+/i.test(text);
-        const hasSpecialMark = /[^a-z-ęóąłżźćńś]/i.test(text);
+        const hasSpecialMarkOrNumber = /[^a-z-ęóąłżźćńś]/i.test(text);
         const hasProperLengthRange = /^[a-z-ęóąłżźćńś]{2,20}$/i.test(text);
+        // const hasProperLength = (text.length <= 20)
 
-        // console.log(`1:${atLeastOneVowel} 2:${hasSpecialMark} 3:${hasProperLengthRange} <-- ${text}`);
 
-        if (!atLeastOneVowel || hasSpecialMark || !hasProperLengthRange) return false;
+        if (!atLeastOneVowel || hasSpecialMarkOrNumber || !hasProperLengthRange) return false;
         else return true;
     }
 
@@ -41,10 +41,9 @@ class ValidatorClass {
         const suitsGeneralPattern = isEmail(text);
         const atLeastOneDot = /.+/.test(text);
         const onlyOneAtMark = /@{1}/.test(text);    // AtMark == @  
-        const forbiddenMarksOccurs = /^[\? \! \# \$ \% \^ \& \* \\ \[] \] \( \) \{ \} \; \: \/ \< \>]/.test(text);
-        //TODO: forbiddenMarksOccurs stopped working. Find out why o.O
+        const hasForbiddenMarks = /[^a-zęóąłżźćńś\@\.\_0-9]/i.test(text);
 
-        if (!suitsGeneralPattern || !atLeastOneDot || !onlyOneAtMark || forbiddenMarksOccurs)
+        if (!suitsGeneralPattern || !atLeastOneDot || !onlyOneAtMark || hasForbiddenMarks)
             return false;
         else return true;
     }

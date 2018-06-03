@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import "./apiButtons.css";
-import ReduxActions from '../../actions/reduxActions';
 import { clearMainForm } from '../../actions/actions';
 import Validator from '../../services/validator/Validator';
 import UsersService from '../../services/Users/UsersService';
@@ -19,7 +18,7 @@ class ApiButtonPostData extends React.Component {
 
         if (Validator.isFormComplete(formValues)) {
             this.setState({ validationMsg: '' });
-            UsersService.postUserData(); // TODO: rename to UsersService.Add
+            UsersService.Add(); 
             dispatch(clearMainForm());
             console.log("wysłano dane formularza. Jest ok");
         }

@@ -1,6 +1,7 @@
 import React from 'react';
 import "./apiButtons.css";
-import ServersApiCaller from '../../actions/ServersApiCaller';
+// import ServersApiCaller from '../../actions/ServersApiCaller';
+import UsersService from '../../services/Users/UsersService';
 
 
 class ButtonDeleteRecordByID extends React.Component {
@@ -9,7 +10,8 @@ class ButtonDeleteRecordByID extends React.Component {
     }
 
     handleClick() {
-        ServersApiCaller.deleteRecord(this.props.id);
+        UsersService.deleteRecord(this.props.id);
+        // ServersApiCaller.deleteRecord(this.props.id);
     }
 
     render() {
